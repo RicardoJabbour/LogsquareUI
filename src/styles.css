@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mat-toolbar {
+    background: #d1d1d1 !important;
+}
+
+.titleStyle{
+    font-family: system-ui;
+    color: #515e62;
+}

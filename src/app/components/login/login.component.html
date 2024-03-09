@@ -1,0 +1,35 @@
+<div class="loginContainer">
+    <mat-card class="cardStyle">
+
+      <form class="formStyle" [formGroup]="loginForm">
+        <h4 class="titleStyle">ACCOUNT LOGIN</h4>
+  
+        <mat-form-field class="formFieldStyle">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="formFieldStyle">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" placeholder="****">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+            Password must be at least 4 characters long
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="warn" (click)="onLogin()" [disabled]="loginForm.invalid || loginForm.pristine">LogIn</button>
+
+      </form>
+      
+    </mat-card>
+  </div>
+  

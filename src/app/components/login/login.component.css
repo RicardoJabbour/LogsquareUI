@@ -1,0 +1,27 @@
+.loginContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardStyle{
+    width: 385px;
+}
+
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+}
+
+.formFieldStyle{
+    width: 80%;
+}
+
+.noAccountStyle{
+    cursor: pointer;
+    margin: 10px;
+}

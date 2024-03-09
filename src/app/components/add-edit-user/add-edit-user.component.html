@@ -1,0 +1,30 @@
+<div class="editUserStyle">
+  <h4 *ngIf="editMode" class="titleStyle">Edit User</h4>
+  <h4 *ngIf="!editMode" class="titleStyle">Add User</h4>
+  <form class="formStyle" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name:</mat-label>
+      <input matInput type="text" id="name" [(ngModel)]="user.name" name="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email:</mat-label>
+      <input matInput type="email" id="email" [(ngModel)]="user.email" name="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Age:</mat-label>
+      <input matInput type="number" id="age" [(ngModel)]="user.age" name="age">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone:</mat-label>
+      <input matInput type="tel" id="phone" [(ngModel)]="user.phone" name="phone">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password:</mat-label>
+      <input matInput type="password" id="password" [(ngModel)]="user.password" name="password">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button type="submit">Save</button>
+      <button mat-raised-button (click)="closeDialog()">Cancel</button>
+    </div>
+  </form>
+</div>

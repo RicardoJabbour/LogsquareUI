@@ -1,0 +1,9 @@
+.formStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.editUserStyle{
+    padding: 25px;
+}
