@@ -1,76 +1,21 @@
-<!-- <div class="container">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Sales Performance</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [chartType]="chartType"></canvas>
-    </mat-card-content>
-  </mat-card>
+<div class="titleStyle" *ngIf="email">Logged in by {{email}}</div>
 
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>User Activity</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [chartType]="chartType"></canvas>
-    </mat-card-content>
-  </mat-card>
+<button mat-flat-button class="backBtnStyle" color="warn" routerLink="/UserManagement">
+  Back To User Managment
+  <span class="material-icons">arrow_back</span>
+</button>
 
-  </div> -->
+<div class="chartContainerStyle">
+  <div class="chartStyle">
+    <label class="titleStyle">2023 Website Visits</label>
 
-  <!-- dashboard.component.html -->
-<!-- <div class="dashboard">
-  <div class="chart">
-    <ngx-charts-pie-chart
-      [view]="[700, 400]"
-      [scheme]="colorScheme"
-      [results]="single"
-      [gradient]="gradient"
-      (select)="onSelect($event)">
-    </ngx-charts-pie-chart>
-  </div>
-</div> -->
-
-<!-- <div class="dashboard-container">
-  <h1>Dashboard</h1>
-
-  <div class="chart-container">
-    <h2>Sales Over Time</h2>
-    <canvas baseChart [datasets]="lineChartData.data" [labels]="lineChartData.labels" [options]="lineChartData.options" [chartType]="lineChartData.type"></canvas>
+    <canvas id="websiteVisitsChart" >{{ websiteVisitsChart }}</canvas>
   </div>
 
-  <div class="chart-container">
-    <h2>Product Revenue</h2>
-    <canvas baseChart [datasets]="barChartData.data" [labels]="barChartData.labels" [options]="barChartData.options" [chartType]="barChartData.type"></canvas>
+  <div class="chartStyle">
+    <label class="titleStyle">New Users vs. Time Spent on Platform (Feb 1-8, 2024)</label>
+    
+    <canvas  id="UsersChart" >{{ UsersChart }}</canvas>
   </div>
 
-  </div> -->
-<!-- 
-  <div class="dashboard-container">
-    <h1>Dashboard</h1>
-  
-    <div class="chart-container">
-      <h2>Sales Over Time</h2>
-      <canvas baseChart [datasets]="lineChartData.data" [labels]="lineChartData.labels" [options]="lineChartData.options" [chartType]="lineChartData.type"></canvas>
-    </div>
-  
-    <div class="chart-container">
-      <h2>Product Revenue</h2>
-      <canvas baseChart [datasets]="barChartData.data" [labels]="barChartData.labels" [options]="barChartData.options" [chartType]="barChartData.type"></canvas>
-    </div>
-  
-    </div>
-   -->
-
-   <!-- <div class="chart-container">
-    <canvas  id="MyChart" >{{ chart }}</canvas>
-</div> -->
-
-<div class="chart-container">
-  <canvas  id="MyChart" >{{ chart }}</canvas>
-</div>
-
-<div class="chart-container1">
-  <canvas  id="MyChart1" >{{ chart1 }}</canvas>
 </div>

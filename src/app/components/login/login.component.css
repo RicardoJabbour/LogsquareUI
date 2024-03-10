@@ -25,3 +25,12 @@
     cursor: pointer;
     margin: 10px;
 }
+
+.titleStyle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.link{
+    cursor: pointer;
+}

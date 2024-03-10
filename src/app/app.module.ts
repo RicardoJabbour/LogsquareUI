@@ -20,6 +20,8 @@ import { Interceptor } from './services/interceptor';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { AddEditUserComponent } from './components/add-edit-user/add-edit-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './guard/auth.guard';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -42,10 +44,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
-    MatTableModule, // Import MatTableModule
-    MatSortModule // Import MatSortModule
+    MatTableModule,
+    MatSortModule,
+    MatProgressBarModule,
   ],
   providers: [
+    AuthGuard,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,

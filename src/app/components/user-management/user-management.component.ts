@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild, inject } from '@angular/core';
 import { User } from '../../models/User';
 import { UserService } from '../../services/user.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -15,6 +15,8 @@ export class UserManagementComponent implements OnInit {
   userService = inject(UserService);
   excelService = inject(ExcelService);
   dialog = inject(MatDialog);
+  cdr = inject(ChangeDetectorRef);
+  email: string | undefined;
 
   users: User[] = [];
   dataSource: any;
@@ -35,8 +37,8 @@ export class UserManagementComponent implements OnInit {
            }
     });
 
-  this.config.disableClose = true;
-
+    this.config.disableClose = true;
+    this.email = localStorage.getItem("user") ?? "";
   }
 
   editUser(user: User){
@@ -53,6 +55,7 @@ export class UserManagementComponent implements OnInit {
         this.users = [];
         this.users = result;
         this.dataSource = this.users;
+        this.cdr.detectChanges();
       } 
     });
   }
@@ -92,6 +95,7 @@ export class UserManagementComponent implements OnInit {
         this.users = [];
         this.users = result;
         this.dataSource = this.users;
+        this.cdr.detectChanges();
       }    
     });
   }

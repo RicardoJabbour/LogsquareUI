@@ -1,30 +1,46 @@
 <div class="editUserStyle">
   <h4 *ngIf="editMode" class="titleStyle">Edit User</h4>
-  <h4 *ngIf="!editMode" class="titleStyle">Add User</h4>
-  <form class="formStyle" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill">
-      <mat-label>Name:</mat-label>
+  <h4 *ngIf="!editMode && !isSignIn" class="titleStyle">Add User</h4>
+  <h4 *ngIf="isSignIn" class="titleStyle">Sign In</h4>
+
+  <form class="formStyle" (ngSubmit)="onSubmit()" #f>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
       <input matInput type="text" id="name" [(ngModel)]="user.name" name="name">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Email:</mat-label>
-      <input matInput type="email" id="email" [(ngModel)]="user.email" name="email">
+    
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" [required]="true" [(ngModel)]="user.email" name="email" #email="ngModel" [ngModelOptions]="{standalone: true}" [email]="true">
+      <mat-error *ngIf="email.errors && email.errors['required']">Email is required</mat-error>
+      <mat-error *ngIf="email.errors && email.errors['email'] && !email.errors['required']">Email must be in correct format</mat-error>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Age:</mat-label>
-      <input matInput type="number" id="age" [(ngModel)]="user.age" name="age">
+      
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput type="number" id="age" [(ngModel)]="user.age" name="age" min="0">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Phone:</mat-label>
+
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
       <input matInput type="tel" id="phone" [(ngModel)]="user.phone" name="phone">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Password:</mat-label>
-      <input matInput type="password" id="password" [(ngModel)]="user.password" name="password">
+
+    <mat-form-field *ngIf="isSignIn || !editMode">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" id="password" [required]="true" [(ngModel)]="user.password" name="password" #password="ngModel" [ngModelOptions]="{standalone: true}" minlength="4">
+      <mat-error *ngIf="password.errors && password.errors['required']">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="password.errors && password.errors['minlength'] && !password.errors['required']">
+        Password must be at least 4 characters long
+      </mat-error>
     </mat-form-field>
-    <div>
-      <button mat-raised-button type="submit">Save</button>
-      <button mat-raised-button (click)="closeDialog()">Cancel</button>
+        
+    <div class="btnStyle">
+      <button *ngIf="!isSignIn" mat-raised-button color="warn" type="submit" [disabled]="f['invalid']">Save</button>
+      <button *ngIf="isSignIn" mat-raised-button color="warn" type="submit" [disabled]="f['invalid']">Sign In</button>
+      <button mat-raised-button type="button" (click)="closeDialog()">Cancel</button>
     </div>
   </form>
 </div>

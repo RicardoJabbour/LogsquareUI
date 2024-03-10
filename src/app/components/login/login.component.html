@@ -26,8 +26,12 @@
           </mat-error>
         </mat-form-field>
 
-        <button mat-flat-button color="warn" (click)="onLogin()" [disabled]="loginForm.invalid || loginForm.pristine">LogIn</button>
+        <button mat-flat-button color="warn" (click)="onLogin()" [disabled]="loginForm.invalid || loginForm.pristine">
+          LogIn
+          <mat-icon>login</mat-icon>
+        </button>
 
+        <a class="titleStyle link" (click)="signIn()">Don't have an account?</a>
       </form>
       
     </mat-card>

@@ -1,8 +1,9 @@
 <div>
+  <div class="titleStyle" *ngIf="email">Logged in by {{email}}</div>
   <div class="btnStyle">
    <button mat-flat-button color="warn" (click)="addUser()">
       Add User
-    <mat-icon>add</mat-icon>
+      <mat-icon>add</mat-icon>
     </button>
 
     <button mat-flat-button color="warn" (click)="exportData()">
@@ -12,6 +13,12 @@
 
     <button mat-flat-button color="warn" routerLink="/charts" >
       Go To Charts
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+
+    <button mat-flat-button color="warn" routerLink="/" >
+      Sign Out
+      <mat-icon>logout</mat-icon>
     </button>
   </div>
 

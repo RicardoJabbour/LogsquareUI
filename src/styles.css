@@ -8,3 +8,7 @@
     font-family: system-ui;
     color: #515e62;
 }
+
+.mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper{
+    padding: 0px !important;
+}

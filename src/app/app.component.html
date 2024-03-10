@@ -1,19 +1,9 @@
 <mat-toolbar>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
   <img routerLink="/" class="imgStyle" src="../assets/images/logsqr_transparent.png">
+</mat-toolbar>
 
-    <!-- <span class="titleStyle">Logsquare</span> -->
-    <!-- <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button> -->
-  </mat-toolbar>
+<mat-progress-bar color="warn" *ngIf="loaderService.isLoading$ | async" mode="indeterminate"></mat-progress-bar>
 
-  <div class="bodyStyle">
-    <router-outlet></router-outlet>
+<div class="bodyStyle">
+  <router-outlet></router-outlet>
 </div>
