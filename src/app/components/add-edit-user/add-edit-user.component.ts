@@ -41,7 +41,7 @@ export class AddEditUserComponent implements OnInit {
     if(this.isSignIn)
       this.authService.signIn(this.user).subscribe({
         next: (user: User) =>{
-          this.dialogRef.close(user);   
+          this.dialogRef.close(this.user);   
         },
         error: (err) =>{
           console.log(err);
@@ -72,7 +72,6 @@ export class AddEditUserComponent implements OnInit {
             }
           });
     
-
   }
 
   closeDialog() {
